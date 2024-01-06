@@ -14,7 +14,7 @@ export function CopyButton({ snippet }: { snippet: string }) {
       onClick={() => {
         setCopied();
 
-        const colorType = snippet.includes("display-p3") ? "p3" : "hex";
+        const colorType = snippet.includes("display-p3") ? "p3" : snippet.includes("#") ? "hex" : "empty";
         fetch(`/api/metrics?name=copied.${colorType}`);
       }}
     >

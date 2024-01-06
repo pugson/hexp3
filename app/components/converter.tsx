@@ -51,7 +51,7 @@ export function Converter() {
             backgroundColor: hex !== "" ? hex : "#e4c351",
           }}
         >
-          <CopyButton snippet={hex} />
+          <CopyButton snippet={hex} key={hex} />
         </div>
         <div
           className="aspect-square w-full h-full rounded-3xl shadow-sm flex items-center justify-center bg-slate-800 relative swatch-p3"
@@ -59,7 +59,7 @@ export function Converter() {
             backgroundColor: p3 !== "" ? p3 : "color(display-p3 0.894118 0.764706 0.317647 / 1.000000)",
           }}
         >
-          <CopyButton snippet={p3} />
+          <CopyButton snippet={p3} key={p3} />
         </div>
       </div>
       <input
