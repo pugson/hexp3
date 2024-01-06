@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "HEX·P3",
+  applicationName: "HEX·P3",
   description: "Quickly convert your HEX colors to P3 color space.",
   metadataBase: new URL("https://hexp3.com"),
 };
