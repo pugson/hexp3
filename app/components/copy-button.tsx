@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
 import useClipboard from "react-use-clipboard";
 
 export function CopyButton({ snippet }: { snippet: string }) {
@@ -9,15 +8,15 @@ export function CopyButton({ snippet }: { snippet: string }) {
     successDuration: 2000,
   });
 
-  useEffect(() => {
-    const colorType = snippet.includes("display-p3") ? "p3" : "hex";
-    fetch(`/api/metrics?name=copied.${colorType}`);
-  }, [isCopied]);
-
   return (
     <button
       className="flex items-center justify-center w-24 h-24 transition-all rounded-xl sm:rounded-full outline-none text-white ring-2 ring-white hover:ring-4 hover:ring-accent active:scale-95 hover:text-accent focus-visible:ring-4 focus-visible:ring-white mix-blend-difference"
-      onClick={setCopied}
+      onClick={() => {
+        setCopied();
+
+        const colorType = snippet.includes("display-p3") ? "p3" : "hex";
+        fetch(`/api/metrics?name=copied.${colorType}`);
+      }}
     >
       <AnimatePresence initial={false}>{isCopied ? <CheckIcon /> : <ClipboardIcon />}</AnimatePresence>
     </button>
