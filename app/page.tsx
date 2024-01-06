@@ -13,7 +13,7 @@ export default function Home() {
           </p>
         </div>
         <Converter />
-        <div className="text-slate-700 text-sm leading-relaxed text-center py-2">
+        <div className="text-slate-700 text-xs leading-relaxed text-center py-2">
           <p>
             Converted P3 colors are only an approximation of the original HEX color and not a 1:1 match.
             <br />
