@@ -1,6 +1,5 @@
 "use client";
 
-import { trackEvent } from "@/utils/metrics";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import useClipboard from "react-use-clipboard";
@@ -12,8 +11,7 @@ export function CopyButton({ snippet }: { snippet: string }) {
 
   useEffect(() => {
     const colorType = snippet.includes("display-p3") ? "p3" : "hex";
-
-    trackEvent(`copied.${colorType}`);
+    fetch(`/api/metrics?name=copied.${colorType}`);
   }, [isCopied]);
 
   return (

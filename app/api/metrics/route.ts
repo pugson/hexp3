@@ -18,7 +18,7 @@ async function createEvent(event: string, timestamp: string, note?: string) {
  * @param event Name to identify the event
  * @param note Optional note to add to the event
  */
-export const trackEvent = async (event: string, note?: string) => {
+const trackEvent = async (event: string, note?: string) => {
   const isDev = process.env.DEV;
   const extraNote = isDev ? "DEV" : note;
 
@@ -30,3 +30,14 @@ export const trackEvent = async (event: string, note?: string) => {
     return;
   }
 };
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const name = searchParams.get("name");
+
+  if (name) {
+    await trackEvent(name);
+  }
+
+  return Response.json({ ok: true });
+}

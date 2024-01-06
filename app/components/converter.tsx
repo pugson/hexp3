@@ -4,7 +4,6 @@ import { toHEX, toP3 } from "@/utils/color";
 import { tw } from "@/utils/tailwind";
 import { useState } from "react";
 import { CopyButton } from "./copy-button";
-import { trackEvent } from "@/utils/metrics";
 
 export function Converter() {
   const [hex, setHex] = useState("");
@@ -20,7 +19,7 @@ export function Converter() {
       const converted = toP3(hexInput) ?? "";
       setHex(hexInput);
       setP3(converted);
-      trackEvent("converted.fromHex");
+      fetch("/api/metrics?name=converted.fromHex");
     }
   };
 
@@ -28,7 +27,7 @@ export function Converter() {
     const converted = toHEX(e.target.value) ?? "";
     setHex(converted);
     setP3(e.target.value);
-    trackEvent("converted.fromP3");
+    fetch("/api/metrics?name=converted.fromP3");
   };
 
   return (
