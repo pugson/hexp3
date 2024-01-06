@@ -24,19 +24,19 @@ export const toP3 = (color: string | null | undefined): string | undefined => {
     const match = color.match(hexColorRegExp);
     if (match) {
       const hex = match[1];
-      if (hex.length === 8 || hex.length === 4) {
-        // HEX with alpha
-        const step = hex.length / 4;
+      if (hex.length === 6 || hex.length === 8) {
+        // HEX with or without alpha
+        const step = hex.length === 8 ? 2 : hex.length / 3;
         red = parseInt(hex.slice(0, step), 16);
         green = parseInt(hex.slice(step, 2 * step), 16);
         blue = parseInt(hex.slice(2 * step, 3 * step), 16);
-        alpha = hex.length === 4 ? parseInt(hex.slice(3 * step), 16) / 15 : parseInt(hex.slice(3 * step), 16) / 255;
-      } else {
-        // HEX without alpha
-        const step = hex.length / 3;
-        red = parseInt(hex.slice(0, step), 16);
-        green = parseInt(hex.slice(step, 2 * step), 16);
-        blue = parseInt(hex.slice(2 * step, 3 * step), 16);
+        alpha = hex.length === 8 ? parseInt(hex.slice(6, 8), 16) / 255 : 1;
+      } else if (hex.length === 3 || hex.length === 4) {
+        // 3 or 4 digit HEX
+        red = parseInt(hex[0] + hex[0], 16);
+        green = parseInt(hex[1] + hex[1], 16);
+        blue = parseInt(hex[2] + hex[2], 16);
+        alpha = hex.length === 4 ? parseInt(hex[3] + hex[3], 16) / 255 : 1;
       }
     }
   } else if (rgbColorRegExp.test(color)) {

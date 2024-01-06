@@ -24,10 +24,14 @@ export function Converter() {
   };
 
   const onChangeP3 = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const converted = toHEX(e.target.value) ?? "";
-    setHex(converted);
-    setP3(e.target.value);
-    fetch("/api/metrics?name=converted.fromP3");
+    const isP3Input = e.target.value.includes("p3");
+
+    if (isP3Input) {
+      const converted = toHEX(e.target.value) ?? "";
+      setHex(converted);
+      setP3(e.target.value);
+      fetch("/api/metrics?name=converted.fromP3");
+    }
   };
 
   return (
