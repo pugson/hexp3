@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "HEX·P3",
   description: "Quickly convert your HEX colors to P3 color space.",
+  metadataBase: new URL("https://hexp3.com"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
