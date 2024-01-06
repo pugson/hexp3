@@ -32,7 +32,7 @@ html {
   left: 0;
   top: -2.25rem;
   z-index: -1;
-  @apply bg-slate-900;
+  @apply bg-slate-800;
 }
 
 .swatch-hex::after {
@@ -55,7 +55,7 @@ html {
   bottom: -2.25rem;
   right: 0;
   z-index: -1;
-  @apply bg-slate-900;
+  @apply bg-slate-800;
 }
 
 .swatch-p3::after {

@@ -37,12 +37,12 @@ export function Converter() {
         onChange={onChangeHex}
         defaultValue={hex}
         className={tw(
-          "color-input font-medium placeholder:text-slate-500 mx-auto w-full max-w-2xl bg-slate-900 text-white p-8 rounded-3xl shadow-sm text-2xl font-mono"
+          "color-input font-medium placeholder:text-slate-500 mx-auto w-full max-w-2xl bg-slate-800 text-white p-8 rounded-3xl shadow-sm text-2xl font-mono"
         )}
       />
       <div className="mx-auto w-full max-w-2xl flex gap-4">
         <div
-          className="aspect-square w-full h-full rounded-3xl shadow-sm flex items-center justify-center bg-slate-900 relative swatch-hex"
+          className="aspect-square w-full h-full rounded-3xl shadow-sm flex items-center justify-center bg-slate-800 relative swatch-hex"
           style={{
             backgroundColor: hex !== "" ? hex : "#e4c351",
           }}
@@ -50,7 +50,7 @@ export function Converter() {
           <CopyButton snippet={hex} />
         </div>
         <div
-          className="aspect-square w-full h-full rounded-3xl shadow-sm flex items-center justify-center bg-slate-900 relative swatch-p3"
+          className="aspect-square w-full h-full rounded-3xl shadow-sm flex items-center justify-center bg-slate-800 relative swatch-p3"
           style={{
             backgroundColor: p3 !== "" ? p3 : "color(display-p3 0.894118 0.764706 0.317647 / 1.000000)",
           }}
@@ -63,7 +63,7 @@ export function Converter() {
         onChange={onChangeP3}
         defaultValue={p3}
         className={tw(
-          "color-input font-medium placeholder:text-slate-500 mx-auto w-full max-w-2xl bg-slate-900 text-white p-8 rounded-3xl shadow-sm text-sm md:text-base font-mono"
+          "color-input font-medium placeholder:text-slate-500 mx-auto w-full max-w-2xl bg-slate-800 text-white p-8 rounded-3xl shadow-sm text-sm md:text-base font-mono"
         )}
       />
     </>

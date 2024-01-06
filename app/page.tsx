@@ -13,9 +13,13 @@ export default function Home() {
           </p>
         </div>
         <Converter />
-        <div className="text-slate-700 text-xs text-center py-2">
-          <p>If one of the colors is black, then it couldn't be converted.</p>
-          <p className="mt-1">
+        <div className="text-slate-700 text-sm leading-relaxed text-center py-2">
+          <p>
+            Converted P3 colors are only an approximation of the original HEX color and not a 1:1 match.
+            <br />
+            If one of the colors is black, then it couldn't be converted.
+          </p>
+          <p className="mt-2">
             Made by{" "}
             <a href="https://wojtek.im/?ref=hexp3" className="text-slate-600 hover:text-slate-400 transition">
               @pugson
