@@ -9,6 +9,23 @@ export function Converter() {
   const [hex, setHex] = useState("");
   const [p3, setP3] = useState("");
 
+  const updateFavicon = (color: string) => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><rect width="128" height="128" fill="${
+      color ?? "#1e26e6"
+    }" fill-rule="evenodd" rx="40"/></svg>`;
+
+    const svgURL = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+
+    const link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    // @ts-ignore
+    link.type = "image/svg+xml";
+    // @ts-ignore
+    link.rel = "icon";
+    // @ts-ignore
+    link.href = svgURL;
+    document.getElementsByTagName("head")[0].appendChild(link);
+  };
+
   const onChangeHex = (e: React.ChangeEvent<HTMLInputElement>) => {
     const hexInput = e.target.value.includes("#") ? e.target.value : `#${e.target.value}`;
 
@@ -19,6 +36,7 @@ export function Converter() {
       const converted = toP3(hexInput) ?? "";
       setHex(hexInput);
       setP3(converted);
+      updateFavicon(converted);
       fetch("/api/metrics?name=converted.fromHex");
     }
   };
@@ -30,6 +48,7 @@ export function Converter() {
       const converted = toHEX(e.target.value) ?? "";
       setHex(converted);
       setP3(e.target.value);
+      updateFavicon(e.target.value);
       fetch("/api/metrics?name=converted.fromP3");
     }
   };
