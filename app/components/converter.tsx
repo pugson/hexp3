@@ -56,14 +56,14 @@ export function Converter() {
         <div
           className="aspect-square w-full h-full rounded-3xl rounded-tl-md rounded-bl-lg shadow-sm flex items-center justify-center bg-slate-800 relative swatch-p3"
           style={{
-            backgroundColor: p3 !== "" ? p3 : "color(display-p3 1.000000 0.349020 0.141176 / 1.000000)",
+            backgroundColor: p3 !== "" ? p3 : "color(display-p3 0.117647 0.149020 0.901961 / 1.000000)",
           }}
         >
           <CopyButton snippet={p3} key={p3} />
         </div>
       </div>
       <input
-        placeholder="color(display-p3 1.000000 0.349020 0.141176 / 1.000000)"
+        placeholder="color(display-p3 0.117647 0.149020 0.901961 / 1.000000)"
         onChange={onChangeP3}
         defaultValue={p3}
         className={tw(
