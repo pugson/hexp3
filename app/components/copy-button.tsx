@@ -8,18 +8,22 @@ export function CopyButton({ snippet }: { snippet: string }) {
     successDuration: 2000,
   });
 
-  return (
-    <button
-      className="flex items-center justify-center w-24 h-24 transition-all rounded-xl sm:rounded-full outline-none text-white ring-2 ring-white hover:ring-4 hover:ring-accent active:scale-95 hover:text-accent focus-visible:ring-4 focus-visible:ring-white mix-blend-difference"
-      onClick={() => {
-        setCopied();
+  const copyColor = () => {
+    setCopied();
 
-        const colorType = snippet.includes("display-p3") ? "p3" : snippet.includes("#") ? "hex" : "empty";
-        fetch(`/api/metrics?name=copied.${colorType}`);
-      }}
-    >
-      <AnimatePresence initial={false}>{isCopied ? <CheckIcon /> : <ClipboardIcon />}</AnimatePresence>
-    </button>
+    const colorType = snippet.includes("display-p3") ? "p3" : snippet.includes("#") ? "hex" : "empty";
+    fetch(`/api/metrics?name=copied.${colorType}`);
+  };
+
+  return (
+    <div className="absolute w-full h-full flex items-center justify-center" onClick={copyColor}>
+      <button
+        className="flex items-center justify-center w-24 h-24 transition-all rounded-xl sm:rounded-full outline-none text-white ring-2 ring-white hover:ring-4 hover:ring-accent active:scale-95 hover:text-accent focus-visible:ring-4 focus-visible:ring-white mix-blend-difference"
+        onClick={copyColor}
+      >
+        <AnimatePresence initial={false}>{isCopied ? <CheckIcon /> : <ClipboardIcon />}</AnimatePresence>
+      </button>
+    </div>
   );
 }
 
