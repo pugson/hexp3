@@ -37,7 +37,7 @@ export function Converter() {
   return (
     <>
       <input
-        placeholder="#e4c351"
+        placeholder="#1e26e6"
         onChange={onChangeHex}
         defaultValue={hex}
         className={tw(
@@ -48,7 +48,7 @@ export function Converter() {
         <div
           className="aspect-square w-full h-full rounded-3xl rounded-br-md rounded-tr-lg shadow-sm flex items-center justify-center bg-slate-800 relative swatch-hex"
           style={{
-            backgroundColor: hex !== "" ? hex : "#e4c351",
+            backgroundColor: hex !== "" ? hex : "#1e26e6",
           }}
         >
           <CopyButton snippet={hex} key={hex} />
@@ -56,14 +56,14 @@ export function Converter() {
         <div
           className="aspect-square w-full h-full rounded-3xl rounded-tl-md rounded-bl-lg shadow-sm flex items-center justify-center bg-slate-800 relative swatch-p3"
           style={{
-            backgroundColor: p3 !== "" ? p3 : "color(display-p3 0.894118 0.764706 0.317647 / 1.000000)",
+            backgroundColor: p3 !== "" ? p3 : "color(display-p3 1.000000 0.349020 0.141176 / 1.000000)",
           }}
         >
           <CopyButton snippet={p3} key={p3} />
         </div>
       </div>
       <input
-        placeholder="color(display-p3 0.894118 0.764706 0.317647 / 1.000000)"
+        placeholder="color(display-p3 1.000000 0.349020 0.141176 / 1.000000)"
         onChange={onChangeP3}
         defaultValue={p3}
         className={tw(
