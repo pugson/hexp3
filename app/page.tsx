@@ -7,7 +7,7 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6 w-full">
         <div className="mx-auto w-full max-w-2xl bg-slate-900 text-white p-8 rounded-3xl shadow-sm">
           <h1 className="font-bold text-2xl">HEX·P3</h1>
-          <p className="font-medium text-slate-300">Quickly convert your HEX colors to P3 color space.</p>
+          <p className="font-medium text-slate-300">Quickly convert your HEX colors to Display P3 color space</p>
           <p className="font-medium text-xs text-slate-500 mt-2">
             <span className="md:hidden">Tap</span>
             <span className="hidden md:inline">Click</span> a swatch to copy the color to your clipboard.
