@@ -56,6 +56,7 @@ export function Converter() {
   return (
     <>
       <input
+        autoFocus
         placeholder="#1e26e6"
         onChange={onChangeHex}
         defaultValue={hex}
