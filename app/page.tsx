@@ -16,9 +16,12 @@ export default function Home() {
           </p>
         </div>
         <Converter />
-        <div className="text-xs leading-relaxed text-center py-2">
-          <p className="text-slate-600">
-            Converted P3 colors are only a more vibrant approximation of the original HEX color and not a 1:1 match.
+        <div className="text-xs leading-relaxed text-center py-2 flex flex-col justify-center items-center">
+          <p className="text-slate-400 text-balance max-w-xl">
+            𝙽𝙾𝚃𝙴: Converted P3 colors on this site are only a more vibrant approximation of the original HEX color and
+            not a 1:1 match. They are supposed to ✨ 𝙿 𝙾 𝙿 💅
+          </p>
+          <p className="text-slate-600 -mt-2">
             <br />
             If one of the colors is black, then it couldn't be converted.
           </p>
